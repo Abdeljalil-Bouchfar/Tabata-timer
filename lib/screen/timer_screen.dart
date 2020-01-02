@@ -17,14 +17,14 @@ class TimerUI extends StatefulWidget {
 }
 
 class _TimerUIState extends State<TimerUI> with WidgetsBindingObserver {
-  AppLifecycleState _lastLifeCycleState;
+  AppLifecycleState _appLifecycleState;
+  bool isDone = false;
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
-    print('i ts change to $state');
     setState(() {
-      _lastLifeCycleState = state;
+      _appLifecycleState = state;
     });
   }
 
@@ -48,16 +48,29 @@ class _TimerUIState extends State<TimerUI> with WidgetsBindingObserver {
     super.initState();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     var _state = Provider.of<StateService>(context);
-    if (_lastLifeCycleState == AppLifecycleState.paused ||
-        _lastLifeCycleState == AppLifecycleState.inactive) _state.stop();
+
+    //pause when the app goes to the background and build function is done
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      print('i run fuck ...');
+      print(_appLifecycleState);
+      if (_appLifecycleState == AppLifecycleState.paused ||
+          _appLifecycleState == AppLifecycleState.inactive) {
+        if (_state.currentStep == 'g') {
+          _state.resetAll();
+        } else
+          _state.stop();
+      }
+    });
+
     //to read data work and rest and total cycle
     _state.readData();
+
+    //get the current theme
     Color _color = ThemeColor[_state.currentTheme];
+
     return Scaffold(
       backgroundColor: _color,
       body: SafeArea(

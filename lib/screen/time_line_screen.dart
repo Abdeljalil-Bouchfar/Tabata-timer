@@ -18,6 +18,7 @@ class _TimelineState extends State<Timeline> {
   @override
   Widget build(BuildContext context) {
     var _state = Provider.of<StateService>(context);
+    _state.getDoneCycle();
     return Scaffold(
       backgroundColor: ThemeColor[_state.currentTheme],
       body: SafeArea(

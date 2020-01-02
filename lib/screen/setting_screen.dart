@@ -64,7 +64,7 @@ class _SettingState extends State<Setting> {
               padding: const EdgeInsets.only(bottom: 20.0),
               child: Text(
                 'TIMER',
-                style: KSecondStyle.copyWith(fontSize: 25, letterSpacing: 3.8),
+                style: KSecondStyle.copyWith(fontSize: 25, letterSpacing: 3.8,color: Colors.white),
               ),
             ),
             Align(

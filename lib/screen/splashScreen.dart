@@ -32,14 +32,14 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  int randomN = random.nextInt(ThemeColor.length);
+  int _randomN = random.nextInt(ThemeColor.length);
 
   @override
   Widget build(BuildContext context) {
     var _state = Provider.of<StateService>(context);
     _state.getTheme();
     return Scaffold(
-      backgroundColor: ThemeColor[randomN],
+      backgroundColor: ThemeColor[_randomN],
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -54,13 +54,14 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Text(
               'Tabata',
-              style: KFirstStyle.copyWith(letterSpacing: 4),
+              style: KFirstStyle.copyWith(letterSpacing: 4,fontSize: 33),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 20.0),
               child: Text(
                 'TIMER',
-                style: KSecondStyle.copyWith(fontSize: 25, letterSpacing: 3.8),
+                style: KSecondStyle.copyWith(
+                    fontSize: 39, letterSpacing: 3.8, color: Colors.white),
               ),
             ),
           ],

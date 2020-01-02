@@ -114,8 +114,11 @@ class StateService extends ChangeNotifier {
       if (voiceState) control = await player.play('get.mp3');
       resetButton = false;
       await Future.delayed(Duration(milliseconds: 7600), () async {
-        await _database.currentStep(write: true, currentS: 'w');
-        if (!resetButton) start();
+        if (!resetButton) {
+          await _database.currentStep(write: true, currentS: 'w');
+          start();
+        }
+        if (resetButton) reset();
       });
     }
 
@@ -155,9 +158,9 @@ class StateService extends ChangeNotifier {
         currentCycle = 1;
         reset();
         resetAll();
-        _database.done(
-            write: true, lastIndex: (cycleList.length - 1).toString());
         if (voiceState) control = await player.play('done.mp3');
+        await _database.done(
+            write: true, lastIndex: (cycleList.length - 1).toString());
       }
     }
     _currentDuration = _watch.elapsed;
