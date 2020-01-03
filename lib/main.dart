@@ -4,9 +4,8 @@ import 'package:workout_timer/screen/splashScreen.dart';
 import 'function/state_manege.dart';
 
 void main() {
-  runApp(new MyApp());
+    runApp(new MyApp());
 }
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override

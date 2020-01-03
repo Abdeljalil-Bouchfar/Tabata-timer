@@ -3,12 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:workout_timer/constant/const.dart';
 import 'package:workout_timer/function/state_manege.dart';
 
-class Button extends StatefulWidget {
-  @override
-  _ButtonState createState() => _ButtonState();
-}
+class Button extends StatelessWidget {
+  final bool landscapeMode;
 
-class _ButtonState extends State<Button> {
+  Button({this.landscapeMode = false});
+
   @override
   Widget build(BuildContext context) {
     var _timer = Provider.of<StateService>(context);

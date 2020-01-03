@@ -6,12 +6,12 @@ import 'package:workout_timer/function/state_manege.dart';
 import 'package:workout_timer/widgets/time_line_isempty.dart';
 import 'package:workout_timer/widgets/time_line_list.dart';
 
-class Timeline extends StatefulWidget {
+class TimeLine extends StatefulWidget {
   @override
-  _TimelineState createState() => _TimelineState();
+  _TimeLineState createState() => _TimeLineState();
 }
 
-class _TimelineState extends State<Timeline> {
+class _TimeLineState extends State<TimeLine> {
   Database _database = Database();
   Widget currentWidget = TimelineList();
 

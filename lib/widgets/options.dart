@@ -9,6 +9,9 @@ import 'package:workout_timer/screen/timer_screen.dart';
 import 'Tabataoption.dart';
 
 class SetOptions extends StatefulWidget {
+  final bool landscapeMode;
+
+  SetOptions({this.landscapeMode = false});
   @override
   _SetOptionsState createState() => _SetOptionsState();
 }
@@ -40,6 +43,7 @@ class _SetOptionsState extends State<SetOptions> {
 
   @override
   Widget build(BuildContext context) {
+    bool _isLandscapeMode = widget.landscapeMode;
     var _state = Provider.of<StateService>(context);
     return Container(
       color: BottomSheetContainer[_state.currentTheme],
@@ -58,7 +62,7 @@ class _SetOptionsState extends State<SetOptions> {
               text: 'WORK',
               timerPicker: Flexible(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  padding: const EdgeInsets.only(left: 10, right: 10),
                   child: Row(
                     children: <Widget>[
                       Flexible(
@@ -74,7 +78,7 @@ class _SetOptionsState extends State<SetOptions> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.only(right:10),
                         child: Text(
                           'm',
                           style: KFirstStyle,
@@ -184,48 +188,59 @@ class _SetOptionsState extends State<SetOptions> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 8, top: 4),
-              child: FlatButton(
-                onPressed: () {
-                  _state.allCycle = cycle;
-                  //write the new info in Database class
-                  _database.cycle(write: true, lastcycle: cycle.toString());
-                  _database.work(
-                      write: true,
-                      lastwork: (_workSecond.inSeconds + _workMinute.inSeconds)
-                          .toString());
-                  _database.rest(
-                      write: true,
-                      lastrest: (_restMinute.inSeconds + _restSecond.inSeconds)
-                          .toString());
-                  _database.date(
-                      write: true,
-                      lastdate: formatDate(DateTime.now(),
-                          [D, ', ', M, ' ', dd, '  At ', HH, ':', nn]));
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return TimerUI();
-                  },),);
-                },
-                child: Container(
-                  height: 50,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(30),
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Save',
-                      style: KButtonStyle.copyWith(
-                        fontSize: 35,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(bottom: 8, top: 4),
+                  child: FlatButton(
+                    onPressed: () {
+                      _state.allCycle = cycle;
+                      //write the new info in Database class
+                      _database.cycle(write: true, lastcycle: cycle.toString());
+                      _database.work(
+                          write: true,
+                          lastwork: (_workSecond.inSeconds + _workMinute.inSeconds)
+                              .toString());
+                      _database.rest(
+                          write: true,
+                          lastrest: (_restMinute.inSeconds + _restSecond.inSeconds)
+                              .toString());
+                      _database.date(
+                          write: true,
+                          lastdate: formatDate(DateTime.now(),
+                              [D, ', ', M, ' ', dd, '  At ', HH, ':', nn]));
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return TimerUI();
+                      },),);
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(30),
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Save',
+                          style: KButtonStyle.copyWith(
+                            fontSize: 35,
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
+                FlatButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Icon(
+                    Icons.close,color: Colors.red,size: 50,
+                  ),
+                )
+              ],
             ),
           ],
         ),
