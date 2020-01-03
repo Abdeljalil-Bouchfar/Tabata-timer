@@ -6,7 +6,7 @@ import 'package:workout_timer/constant/const.dart';
 import 'package:workout_timer/function/state_manege.dart';
 import 'package:workout_timer/screen/timer_screen.dart';
 
-Random random = Random();
+Random _random = Random();
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  int _randomN = random.nextInt(ThemeColor.length);
+  int _randomN = _random.nextInt(ThemeColor.length);
 
   @override
   Widget build(BuildContext context) {

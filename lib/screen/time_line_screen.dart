@@ -15,6 +15,7 @@ class _TimeLineState extends State<TimeLine> {
   Database _database = Database();
   Widget currentWidget = TimelineList();
 
+
   @override
   Widget build(BuildContext context) {
     var _state = Provider.of<StateService>(context);
@@ -33,7 +34,7 @@ class _TimeLineState extends State<TimeLine> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Padding(
-                      padding:  EdgeInsets.only(top: 8.0),
+                      padding: EdgeInsets.only(top: 8.0),
                       child: IconButton(
                         icon: Icon(
                           Icons.arrow_back_ios,

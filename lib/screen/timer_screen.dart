@@ -37,7 +37,6 @@ class _TimerUIState extends State<TimerUI> with WidgetsBindingObserver {
     super.deactivate();
   }
 
-  var _or;
 
   @override
   void initState() {
@@ -52,8 +51,6 @@ class _TimerUIState extends State<TimerUI> with WidgetsBindingObserver {
 
     //pause when the app goes to the background and build function is done
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      print('i run fuck ...');
-      print(_appLifecycleState);
       if (_appLifecycleState == AppLifecycleState.paused ||
           _appLifecycleState == AppLifecycleState.inactive) {
         if (_state.currentStep == 'g') {

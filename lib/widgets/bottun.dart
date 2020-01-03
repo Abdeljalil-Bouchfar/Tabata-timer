@@ -4,9 +4,6 @@ import 'package:workout_timer/constant/const.dart';
 import 'package:workout_timer/function/state_manege.dart';
 
 class Button extends StatelessWidget {
-  final bool landscapeMode;
-
-  Button({this.landscapeMode = false});
 
   @override
   Widget build(BuildContext context) {

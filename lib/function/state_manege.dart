@@ -189,7 +189,6 @@ class StateService extends ChangeNotifier {
     _watch.stop();
     _currentDuration = _watch.elapsed;
     notifyListeners();
-    print('its me stop');
   }
 
   //when the user presses the reset button to reset timer

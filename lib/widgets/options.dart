@@ -9,9 +9,6 @@ import 'package:workout_timer/screen/timer_screen.dart';
 import 'Tabataoption.dart';
 
 class SetOptions extends StatefulWidget {
-  final bool landscapeMode;
-
-  SetOptions({this.landscapeMode = false});
   @override
   _SetOptionsState createState() => _SetOptionsState();
 }
@@ -43,7 +40,6 @@ class _SetOptionsState extends State<SetOptions> {
 
   @override
   Widget build(BuildContext context) {
-    bool _isLandscapeMode = widget.landscapeMode;
     var _state = Provider.of<StateService>(context);
     return Container(
       color: BottomSheetContainer[_state.currentTheme],

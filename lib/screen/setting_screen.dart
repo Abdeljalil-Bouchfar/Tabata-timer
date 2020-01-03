@@ -8,6 +8,10 @@ import 'package:workout_timer/widgets/list_of_themes_color.dart';
 import 'package:workout_timer/screen/third_party_screen.dart';
 
 class Setting extends StatefulWidget {
+  final bool landscapeMode;
+
+  Setting({this.landscapeMode});
+
   @override
   _SettingState createState() => _SettingState();
 }
@@ -48,25 +52,36 @@ class _SettingState extends State<Setting> {
                 },
               ),
             ),
-            ClipRRect(
-              borderRadius: new BorderRadius.circular(10.0),
-              child: Image.asset(
-                'images/logo.png',
-                height: 100.0,
-                width: 100.0,
-              ),
-            ),
-            Text(
-              'Tabata',
-              style: KFirstStyle.copyWith(letterSpacing: 4),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: Text(
-                'TIMER',
-                style: KSecondStyle.copyWith(fontSize: 25, letterSpacing: 3.8,color: Colors.white),
-              ),
-            ),
+            widget.landscapeMode
+                ? Container()
+                : Column(
+                    children: <Widget>[
+                      ClipRRect(
+                        borderRadius: new BorderRadius.circular(10.0),
+                        child: Image.asset(
+                          'images/logo.png',
+                          height: 100,
+                          width: 100,
+                        ),
+                      ),
+                      Text(
+                        'Tabata',
+                        style: KFirstStyle.copyWith(
+                          letterSpacing: 4,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: Text(
+                          'TIMER',
+                          style: KSecondStyle.copyWith(
+                              fontSize: 25,
+                              letterSpacing: 3.8,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
             Align(
               alignment: Alignment.topLeft,
               child: Text(

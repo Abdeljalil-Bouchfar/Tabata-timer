@@ -9,10 +9,7 @@ import 'package:workout_timer/widgets/menu_item.dart';
 import 'package:workout_timer/widgets/options.dart';
 import 'package:workout_timer/widgets/slider.dart';
 
-
-
 class PortraitMode extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     var _state = Provider.of<StateService>(context);
@@ -67,7 +64,7 @@ class PortraitMode extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return Setting();
+                              return Setting(landscapeMode: false,);
                             },
                           ),
                         );
@@ -115,7 +112,7 @@ class PortraitMode extends StatelessWidget {
         //these are the start and rest buttons
         Padding(
           padding: const EdgeInsets.only(top: 40, bottom: 40),
-          child: Button(landscapeMode: true,),
+          child: Button(),
         ),
         //this is the bottom button for work and rest and cycle option
         Column(
@@ -147,4 +144,3 @@ class PortraitMode extends StatelessWidget {
     );
   }
 }
-

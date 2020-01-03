@@ -21,8 +21,8 @@ class SliderTimer extends StatelessWidget {
 
     return Center(
       child: Container(
-        height: landscapeMode ? 200 : 250.0,
-        width: landscapeMode ? 200 : 250.0,
+        height: landscapeMode ? 240 : 250.0,
+        width: landscapeMode ? 240 : 250.0,
         child: CustomPaint(
           foregroundPainter: MyPainter(
             lineColor: ThemeColor[_state.currentTheme],
