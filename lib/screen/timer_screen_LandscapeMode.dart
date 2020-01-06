@@ -18,10 +18,10 @@ class LandscapeMode extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Column(
+        Stack(
           children: <Widget>[
             Container(
-              width: 325,
+              width: 365,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -66,7 +66,9 @@ class LandscapeMode extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return Setting(landscapeMode: true,);
+                                  return Setting(
+                                    landscapeMode: true,
+                                  );
                                 },
                               ),
                             );
@@ -102,7 +104,7 @@ class LandscapeMode extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 25),
+              padding: const EdgeInsets.only(left: 70, top: 15),
               child: SliderTimer(
                 landscapeMode: true,
               ),
