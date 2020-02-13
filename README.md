@@ -1,6 +1,15 @@
-# tabata
+# Tabata timer
 
-Tabata app timer
+## Description
+Tabata timer is a free interval workout timer app for high-intensity interval training (HIIT timer). It is more than a stopwatch or countdown clock.
+* install the app and try it https://play.google.com/store/apps/details?id=me.bouchfar.tabata
+
+
+
+## Screenshot
+![](images/logo.png)
+
+
 
 ## Getting Started
 
