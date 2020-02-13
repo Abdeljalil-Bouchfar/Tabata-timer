@@ -4,12 +4,12 @@
 Tabata timer is a free interval workout timer app for high-intensity interval training (HIIT timer). It is more than a stopwatch or countdown clock.
 * install the app and try it https://play.google.com/store/apps/details?id=me.bouchfar.tabata
 
+![](images/Artboard.jpg)
 
-
-## Screenshot
-![](images/logo.png)
-
-
+## How to run
+* Clone this repo
+* Run `flutter packages get`
+* Run `flutter run` (remember open simulator or connect physical device, iOS auto run additional command `pod install`)
 
 ## Getting Started
 
